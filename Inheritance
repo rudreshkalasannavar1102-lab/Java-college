@@ -1,0 +1,72 @@
+#Inheritance
+// Base class Student
+class Student {
+    String name;
+    int id;
+    String department;
+
+    // Constructor for Student
+    Student(String name, int id, String department) {
+        this.name = name;
+        this.id = id;
+        this.department = department;
+    }
+
+    // Display method
+    void display() {
+        System.out.println(name + " " + id + " " + department);
+    }
+}
+
+// Undergraduate Student subclass
+class Ugstudent extends Student {
+    String semester;
+    int age;
+
+    // Constructor for Ugstudent
+    Ugstudent(String name, int id, String department, String semester, int age) {
+        super(name, id, department); // Call parent constructor
+        this.semester = semester;
+        this.age = age;
+    }
+
+    @Override
+    void display() {
+        super.display(); // Call parent display
+        System.out.println(semester + " " + age);
+    }
+}
+
+// Postgraduate Student subclass
+class Pgstudent extends Student {
+    String specialisation;
+    String researchType;
+
+    // Constructor for Pgstudent
+    Pgstudent(String name, int id, String department, String specialisation, String researchType) {
+        super(name, id, department);
+        this.specialisation = specialisation;
+        this.researchType = researchType;
+    }
+
+    @Override
+    void display() {
+        super.display();
+        System.out.println(specialisation + " " + researchType);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Create Undergraduate Student
+        Ugstudent s1 = new Ugstudent("Alice", 101, "CSE", "Semester 3", 19);
+        s1.display();
+
+        System.out.println("-----");
+
+        // Create Postgraduate Student
+        Pgstudent s2 = new Pgstudent("Bob", 201, "ECE", "VLSI", "AI/ML");
+        s2.display();
+    }
+}
