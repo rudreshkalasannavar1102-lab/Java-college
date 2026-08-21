@@ -1,0 +1,19 @@
+class Outer {
+    int x;
+    void display(){
+        int y=10;
+        class Localinner{
+            void show(){
+                System.out.println("Hello from localinnerclass");
+            }
+        }
+        Localinner obj=new Localinner();
+        obj.show();
+    }
+ }
+ class Main{
+    public static void main(String[]args){
+        Outer outer=new Outer();
+        outer.display();
+    }
+ }
